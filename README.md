@@ -6,6 +6,8 @@ google 2015年9月推出了mvvm架构，实现了在xml上设置双向数据绑�
 
 开发步骤：
 
+##  普通界面的数据绑定
+
 1   首先要先在build.gradle内添加
 
 ```JAVA
@@ -204,3 +206,80 @@ android:text="@{`姓名是:`+user.name}"
 ![](https://img-blog.csdnimg.cn/20181102090259479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
 
 出来了吧，数据的双向绑定！
+
+
+##  recyclerview的数据绑定
+
+1. 创建一个通用的adapter类，采用泛型来传入对应的model
+
+```JAVA
+public class ZLBindingAdapter<T> extends RecyclerView.Adapter<ZLBindingAdapter.BindingHolder> {
+    private List<T> items ;
+    private int variableId;
+    private int layoutId;
+ 
+    public ZLBindingAdapter(List<T> items, int variableId, int layoutId) {
+        this.items = items;
+        this.variableId = variableId;
+        this.layoutId = layoutId;
+    }
+ 
+    @NonNull
+    @Override
+    public BindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), layoutId, viewGroup, false);
+        return new BindingHolder(binding);
+    }
+ 
+    @Override
+    public void onBindViewHolder(@NonNull BindingHolder bindingHolder, int i) {
+        bindingHolder.bindData(items.get(i));
+    }
+ 
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+ 
+    public class BindingHolder<T> extends RecyclerView.ViewHolder {
+        ViewDataBinding binding;
+        /**
+         * @param binding   可以看作是这个hodler代表的布局的马甲，getRoot()方法会返回整个holder的最顶层的view
+         * */
+        public BindingHolder(ViewDataBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+ 
+        public void bindData(T item) {
+            binding.setVariable(variableId ,item);
+        }
+ 
+    }
+}
+```
+
+items就是我们的数据列表，这里我们是user的数据
+
+variableId就是绑定的model对象，比如我们绑定user这个对象，variableId就是BR.user
+
+layoutId是我们布局文件的id。
+
+
+2. 然后我们的activity是这么写的。
+
+```JAVA
+recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+ZLBindingAdapter<User> bindingAdapter = new ZLBindingAdapter(users, BR.user, R.layout.item_belle);
+recyclerView.setAdapter(bindingAdapter);
+recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+```
+
+3. 看效果：
+
+![](https://img-blog.csdnimg.cn/20181102114656482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
+
+强大吧，列表出来了。
+
+我们要什么类型，只要对应的泛型传入即可，所有recyclerview通用一个adapter！！
