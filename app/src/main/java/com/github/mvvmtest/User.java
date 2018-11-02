@@ -3,7 +3,6 @@ package com.github.mvvmtest;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
-import android.renderscript.ScriptGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;

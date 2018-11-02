@@ -1,5 +1,6 @@
 package com.github.mvvmtest;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
             tag = 0;
         }
         user.setName(names[tag]);
+    }
+
+    public void onNext(View view) {
+        Intent intent = new Intent(this, ListActivity.class);
+        startActivity(intent);
     }
 }

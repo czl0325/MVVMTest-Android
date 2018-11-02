@@ -44,6 +44,13 @@
             android:text="改变数值"
             android:onClick="clickbutton"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:text="进入下一页"
+            android:onClick="onNext"/>
+
     </LinearLayout>
 
 </layout>
