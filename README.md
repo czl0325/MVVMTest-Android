@@ -19,7 +19,7 @@ dataBinding {
 
 2.  建立一个Model类测试，如下，建立一个user类，带有三个参数，名字，密码，头像
 
-```
+```JAVA
 public class User {
     private String name;
     private String password;
@@ -63,7 +63,7 @@ public class User {
 data中name表示你在MainActivity类中要绑定的数据对象。 type为该对象的完整包路径
 然后如代码将你的控件和user对应的属性绑定。
 
-```
+```HTML
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -111,7 +111,7 @@ data中name表示你在MainActivity类中要绑定的数据对象。 type为该�
 
 ActivityMainBinding的意思是，比如你的xml叫activity_main，系统编译时候会帮你生成ActivityMainBinding的类，命名为首字母大写，去掉下划线，然后最后加上Binding，把ActivityMainBinding对象和视图绑定。
 
-```
+```JAVA
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
@@ -131,7 +131,7 @@ protected void onCreate(Bundle savedInstanceState) {
 首先修改user类，在变量的get方法加上@Bindable注解，set方法中加入notifyPropertyChanged(BR.name);  BR是系统编译生成的类，name是你绑定的变量名。只要你加入@Bindable，你的变量就会被系统加入到BR类中。
 
 
-```
+```JAVA
 @Bindable
     public String getName() {
         return name;
@@ -155,7 +155,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 这样我们在button事件中修改下user的值看看。
 
-```
+```JAVA
 public void clickbutton(View view) {
         tag++;
         if (tag > 3) {
@@ -178,7 +178,7 @@ android:text="@{`姓名是:`+user.name}"
 
 在user类中加入一个方法
 
-```
+```JAVA
 @BindingAdapter("bind:avator")
     public static void getImage(ImageView view, String url) {
         Glide.with(view.getContext()).load(url).into(view);
@@ -188,7 +188,7 @@ android:text="@{`姓名是:`+user.name}"
 注意一定要是静态方法。
 然后在xml绑定到imageview
 
-```
+```html
 <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
