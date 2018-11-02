@@ -8,7 +8,7 @@ google 2015年9月推出了mvvm架构，实现了在xml上设置双向数据绑�
 
 1   首先要先在build.gradle内添加
 
-```
+```JAVA
 dataBinding {
     enabled true
 }
