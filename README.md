@@ -283,5 +283,7 @@ recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecorat
 强大吧，列表出来了。
 
 我们要什么类型，只要对应的泛型传入即可，
+
 以前我们是一个recyclerview写一个adapter，还用了很多简化版的第三方库来简化adapter，
+
 现在我们所有recyclerview通用一个adapter！！节省了90%的代码量，强大吧！！！
