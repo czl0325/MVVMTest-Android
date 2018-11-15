@@ -270,7 +270,7 @@ layoutId是我们布局文件的id。
 
 ```JAVA
 recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+recyclerView.setLayoutManager(new LinearLayoutManager(this));
 ZLBindingAdapter<User> bindingAdapter = new ZLBindingAdapter(users, BR.user, R.layout.item_belle);
 recyclerView.setAdapter(bindingAdapter);
 recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
