@@ -16,7 +16,7 @@ dataBinding {
 }
 ```
 
-![](https://img-blog.csdnimg.cn/20181101155347895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
+<img src="https://img-blog.csdnimg.cn/20181101155347895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70" width="320"/>
 
 
 2.  建立一个Model类测试，如下，建立一个user类，带有三个参数，名字，密码，头像
@@ -126,7 +126,7 @@ protected void onCreate(Bundle savedInstanceState) {
 此时运行，发现两个textview都正常显示数据了。
 你不在需要findviewbyid，也不在需要设置id，也不用写setText方法了，实现了数据绑定。
 
-![](https://img-blog.csdnimg.cn/20181101161649900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
+<img src="https://img-blog.csdnimg.cn/20181101161649900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70" width="320"/>
 
 5. 接下来我们要改变user的值，然后textview的值也会自动改变，实现双向数据绑定！
 
@@ -167,7 +167,7 @@ public void clickbutton(View view) {
     }
 ```
 
-![](https://img-blog.csdnimg.cn/20181101162704672.gif)
+<img src="https://img-blog.csdnimg.cn/20181101162704672.gif" width="320"/>
 
 看到没，只要修改user的model对象，控件绑定的值自动改变了！！！是不是很方便。
 当然我们也可以在控件text前面加上自己的文字，写法是：
@@ -203,7 +203,7 @@ android:text="@{`姓名是:`+user.name}"
 
 看效果
 
-![](https://img-blog.csdnimg.cn/20181102090259479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
+<img src="https://img-blog.csdnimg.cn/20181102090259479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70" width="320"/>
 
 出来了吧，数据的双向绑定！
 
@@ -278,7 +278,7 @@ recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecorat
 
 3. 看效果：
 
-![](https://img-blog.csdnimg.cn/20181102114656482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70)
+<img src="https://img-blog.csdnimg.cn/20181102114656482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2N6bDAzMjU=,size_16,color_FFFFFF,t_70" width="320"/>
 
 强大吧，列表出来了。
 
